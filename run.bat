@@ -1,3 +1,3 @@
-curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI-Main/main/test.ps1
+curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI/main/install_apps.ps1
 
-powershell.exe -noprofile -executionpolicy bypass -file .\Files.ps1
+powershell.exe -noprofile -executionpolicy bypass -file .\install_apps.ps1

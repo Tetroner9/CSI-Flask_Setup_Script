@@ -12,9 +12,10 @@ python -m venv .venv
 REM Activate the virtual environment (adjust for your OS)
 call ".venv\Scripts\activate.bat" 
 
+curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI/main/requirements.txt
 
 REM Install Flask using pip in the virtual environment
-pip install Flask
+pip -r requirements.txt
 
 REM Create a file named main.py with "Hello,Flask" content
 echo print("Hello,Flask") > main.py

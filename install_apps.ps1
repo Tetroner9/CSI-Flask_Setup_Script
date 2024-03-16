@@ -63,11 +63,11 @@ foreach ($software in $softwareList) {
 
 # -- Download post.bat Script --
 Write-Host " "  # Blank line
-Write-Host "Downloading additional script (post.bat)..." -ForegroundColor Cyan
-$downloadUrl = "https://raw.githubusercontent.com/Tetroner9/CSI-Main/main/post.bat"
+Write-Host "Downloading additional script (create_files.bat)..." -ForegroundColor Cyan
+$downloadUrl = "https://raw.githubusercontent.com/Tetroner9/CSI/main/create_files.bat"
 $downloadPath = ".\"
 $webClient = New-Object System.Net.WebClient
-$webClient.DownloadFile($downloadUrl, $downloadPath + "\post.bat")
+$webClient.DownloadFile($downloadUrl, $downloadPath + "\create_files.bat")
 
 Write-Host " "  # Blank line
 Write-Host "post.bat downloaded successfully." -ForegroundColor Green
@@ -76,7 +76,7 @@ Write-Host "post.bat downloaded successfully." -ForegroundColor Green
 Write-Host " "  # Blank line
 Write-Host "** All checks and installations completed!**" -ForegroundColor Green
 Write-Host " "  # Blank line
-Write-Host "** Run the create-project.bat file by double clicking**" -ForegroundColor Green
+Write-Host "** Run the create_files.bat file by double clicking**" -ForegroundColor Green
 Write-Host " "  # Blank line
 Write-Host "** Make sure to close all terminal or powershell windows**" -ForegroundColor Red
 Write-Host " "  # Blank line
