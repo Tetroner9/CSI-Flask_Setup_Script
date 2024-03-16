@@ -1,28 +1,58 @@
 @ECHO OFF
 
-REM Create the directory named Flask-Project
+TITLE Flask Project Setup
+
+echo.  
+
+echo ** Welcome to the Flask Project Setup Assistant!**
+echo.
+
+echo ** Creating project directory...**
 mkdir Flask-Project
 
-REM Change directory to Flask-Project
+echo.
+
+echo ** Changing directory...**
 cd Flask-Project
 
-REM Create a Python virtual environment named .venv
+echo.
+
+echo ** Creating virtual environment (.venv)...**
 python -m venv .venv
 
-REM Activate the virtual environment (adjust for your OS)
-call ".venv\Scripts\activate.bat" 
+echo.
 
+echo ** Activating virtual environment...**
+call ".venv\Scripts\activate.bat"
+
+echo.
+
+echo ** Downloading dependencies...**
 curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI/main/requirements.txt
 
-REM Install Flask using pip in the virtual environment
-pip -r requirements.txt
+echo.
 
-REM Create a file named main.py with "Hello,Flask" content
+echo ** Installing dependencies...**
+pip install -r requirements.txt
+
+echo.
+
+echo ** Creating main.py file...**
 echo print("Hello,Flask") > main.py
 
-REM Open VS Code in the current directory
-start code . 
+echo.
 
-echo All tasks completed!
+echo ** Opening VS Code...**
+start code .
+
+echo.
+
+echo ** All tasks completed!**
+
+echo.
+
+echo ** Happy coding!**
+
+echo.
 
 exit
