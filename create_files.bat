@@ -55,4 +55,6 @@ echo ** Happy coding!**
 
 echo.
 
+echo ** Press enter to exit...** pause
+
 exit
