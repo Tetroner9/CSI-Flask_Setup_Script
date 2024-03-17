@@ -2,17 +2,13 @@ pip install gdown
 
 gdown --folder 1Jiz9BBs4ypxa8bwRncFUroE7w_1Ayj3d
 
-echo Installing Vscode...
-::
-Setup-Files\VSCodeUserSetup-x64-1.87.1.exe /VERYSILENT /NORESTART /MERGETASKS=!runcode
-
 echo Installing Xampp...
 :: Installs Xampp
-Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui minimal --mode unattended --enable-components xampp_server,xampp_apache,xampp_mysql,xampp_phpmyadmin
+Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui minimal --mode unattended --disable-components xampp_filezilla,xampp_mercury,xampp_tomcat,xampp_perl,xampp_webalizer,xampp_sendmail
 
 echo Installing MongoDB Compass...
 
-Setup-Files\mongodb-compass-1.42.2-win32-x64.msi /qn /norestart
+Setup-Files\mongodb-compass-1.42.2-win32-x64.exe /qn /norestart
 
 echo Deleting Setup files...
 :: Removes setup files
@@ -37,7 +33,14 @@ cd Flask-Project
 
 echo Creating Python virtual environment...
 :: Create Python virtual environment
-python -m venv venv
+python -m venv .venv
+
+echo.
+
+echo ** Activating virtual environment...**
+call ".venv\Scripts\activate"
+
+echo.
 
 echo ** Downloading dependencies...**
 curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI/main/requirements.txt

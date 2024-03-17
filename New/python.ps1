@@ -23,11 +23,11 @@ if (Test-Path ~\AppData\Local\Microsoft\WindowsApps\winget.exe) {
     Write-Host " "  # Blank line
     Write-Host "Winget is already installed." -ForegroundColor Green
 } else {
-    # Check Windows Version (optional, edit as needed)
-    $osVersion = Get-Version (Get-WmiObject Win32_OperatingSystem).Version
-    if ($osVersion -lt (New-Version "10.0.1809")) {
+    # Check Windows Version (alternative method)
+    $osVersion = (Get-WmiObject Win32_OperatingSystem).Version.Split('.')[0]
+    if ($osVersion -lt 10) {  # Check for Windows 10 (10.0.x)
         Write-Host " "  # Blank line
-        Write-Host "Winget is not supported on this version of Windows (pre-1809)." -ForegroundColor Red
+        Write-Host "Winget is not supported on this version of Windows (pre-10.0)." -ForegroundColor Red
         Exit
     } else {
         Write-Host " "  # Blank line
@@ -45,7 +45,7 @@ winget update
 
 Write-Host " "  # Blank line
 Write-Host "Preparing to install software..." -ForegroundColor Cyan
-$softwareList = @("Python.Python.3.12")
+$softwareList = @("Python.Python.3.12", "Microsoft.VisualStudioCode")
 
 foreach ($software in $softwareList) {
     $softwareStatusCheck = winget list | Where-Object { $_.Id -eq $software }
