@@ -15,6 +15,10 @@ rem Xampp installation (silent, minimal)
 echo Installing Xampp...
 Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui minimal --mode unattended --disable-components xampp_filezilla,xampp_mercury,xampp_tomcat,xampp_perl,xampp_webalizer,xampp_sendmail
 
+rem MongoDB Server installation (silent)
+echo Installing MongoDB Compass...
+Setup-Files\mongodb-windows-x86_64-7.0.6-signed.msi /passive /norestart 
+
 rem MongoDB Compass installation (silent)
 echo Installing MongoDB Compass...
 Setup-Files\mongodb-compass-1.42.2-win32-x64.exe /quiet /norestart
