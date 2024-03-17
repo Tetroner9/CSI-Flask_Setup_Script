@@ -17,7 +17,7 @@ Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui min
 
 rem MongoDB Server installation (silent)
 echo Installing MongoDB Server...
-Setup-Files\mongodb-windows-x86_64-7.0.6-signed.msi 
+Setup-Files\mongodb-windows-x86_64-7.0.6-signed.msi /passive /norestart ADDLOCAL="all" 
 
 rem Create Flask-Project directory
 echo Creating Flask-Project directory...
