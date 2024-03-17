@@ -1,75 +1,65 @@
-pip install gdown
+@echo off
+
+rem Welcome message
+echo Welcome to the Flask Project Setup Script!
+
+rem Informative message about silent installation
+echo This script will silently install Xampp and MongoDB Compass for Windows (64-bit).
+echo **Please be aware that some Xampp components (FileZilla, Mercury, Tomcat, Perl, Webalizer, Sendmail) will be disabled for a minimal installation.**
+
+pip install gdown 
 
 gdown --folder 1Jiz9BBs4ypxa8bwRncFUroE7w_1Ayj3d
 
+rem Xampp installation (silent, minimal)
 echo Installing Xampp...
-:: Installs Xampp
 Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui minimal --mode unattended --disable-components xampp_filezilla,xampp_mercury,xampp_tomcat,xampp_perl,xampp_webalizer,xampp_sendmail
 
+rem MongoDB Compass installation (silent)
 echo Installing MongoDB Compass...
+Setup-Files\mongodb-compass-1.42.2-win32-x64.exe /quiet /norestart
 
-Setup-Files\mongodb-compass-1.42.2-win32-x64.exe /qn /norestart
-
-echo Deleting Setup files...
-:: Removes setup files
-setlocal
-
-set /p confirm=Do you want to remove the Setup-Files directory and its contents? (y/n): 
-if /i "%confirm%"=="y" (
-    rmdir /s /q Setup-Files
-    echo Setup-Files directory and its contents removed successfully.
-) else (
-    echo Removal cancelled. Setup-Files directory and its contents were not removed.
-)
-endlocal
-
+rem Create Flask-Project directory
 echo Creating Flask-Project directory...
-:: Create Flask-Project directory
 mkdir Flask-Project
 
+rem Enter Flask-Project directory
 echo Entering Flask-Project directory...
-:: Change directory to Flask-Project
 cd Flask-Project
 
+rem Create Python virtual environment
 echo Creating Python virtual environment...
-:: Create Python virtual environment
 python -m venv .venv
 
-echo.
-
+rem Activate virtual environment
 echo ** Activating virtual environment...**
 call ".venv\Scripts\activate"
 
-echo.
-
+rem Download requirements.txt
 echo ** Downloading dependencies...**
 curl -O -f https://raw.githubusercontent.com/Tetroner9/CSI/main/requirements.txt
 
-echo.
-
+rem Install dependencies
 echo ** Installing dependencies...**
 pip install -r requirements.txt
 
-echo.
-
+rem Create main.py file
 echo ** Creating main.py file...**
-echo print("Hello,Flask") > main.py
+echo print("Hello, Flask") > main.py
 
-echo.
-
-echo ** Opening VS Code...**
+rem Open VS Code (avoid automatic launch)
+echo ** Opening Vs Code **
 start code .
 
+rem Completion message
 echo.
-
 echo ** All tasks completed!**
-
 echo.
-
 echo ** Happy coding!**
 
+rem Exit with user interaction
 echo.
-
-echo ** Press enter to exit...** pause
+echo ** Press any key to exit...**
+pause
 
 exit
