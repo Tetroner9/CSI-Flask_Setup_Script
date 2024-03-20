@@ -31,8 +31,6 @@ if ERRORLEVEL 1 (
   )
 )
 
-
-
 rem Xampp installation (silent, minimal)
 echo Installing Xampp...
 Setup-Files\xampp-windows-x64-8.2.12-0-VS16-installer.exe --unattendedmodeui minimal --mode unattended --disable-components xampp_filezilla,xampp_mercury,xampp_tomcat,xampp_perl,xampp_webalizer,xampp_sendmail
