@@ -9,7 +9,29 @@ echo **Please be aware that some Xampp components (FileZilla, Mercury, Tomcat, P
 
 pip install gdown 
 
-gdown --folder 13Cgua3NwxwMLWlZQQ-bUuZfS6BgypcUS
+rem Download folder with ID 10r5JpqjVDM54wMH7DQTbPZ9S_cwTabqm
+gdown --folder 10r5JpqjVDM54wMH7DQTbPZ9S_cwTabqm
+if ERRORLEVEL 1 (
+  echo Download failed for folder 1
+  rem Download folder with ID 16-fjPPXNmyAx7eygiam6MIFc-Q5psaFI
+  gdown --folder 16-fjPPXNmyAx7eygiam6MIFc-Q5psaFI
+  if ERRORLEVEL 1 (
+    echo Download failed for folder 2
+    rem Download folder with ID 1Er0dbPRmW464loiPZq8Y-U7N3iARI2fu
+    gdown --folder 1Er0dbPRmW464loiPZq8Y-U7N3iARI2fu
+    if ERRORLEVEL 1 (
+      echo Download failed for 3
+      echo If all download folders failed, please download the files manually from one of the following links and place them in the Setup-Files directory: 
+      echo https://drive.google.com/drive/folders/10r5JpqjVDM54wMH7DQTbPZ9S_cwTabqm?usp=sharing
+      echo https://drive.google.com/drive/folders/16-fjPPXNmyAx7eygiam6MIFc-Q5psaFI?usp=sharing
+      echo https://drive.google.com/drive/folders/1Er0dbPRmW464loiPZq8Y-U7N3iARI2fu?usp=sharing
+      pause
+      exit
+    )
+  )
+)
+
+
 
 rem Xampp installation (silent, minimal)
 echo Installing Xampp...
