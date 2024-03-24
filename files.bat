@@ -61,13 +61,13 @@ rem Install dependencies
 echo ** Installing dependencies...**
 pip install -r requirements.txt
 
-rem Install Python Extension
-echo ** Installing python extension **
-code --install-extension ms-python.python
-
 rem Open VS Code (avoid automatic launch)
 echo ** Opening Vs Code **
 start code .
+
+rem Install Python Extension
+echo ** Installing python extension **
+code --install-extension ms-python.python
 
 rem Completion message
 echo.
