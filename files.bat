@@ -39,13 +39,11 @@ rem MongoDB Server installation (silent)
 echo Installing MongoDB Server...
 Setup-Files\mongodb-windows-x86_64-7.0.6-signed.msi /passive /norestart ADDLOCAL="all" 
 
-rem Create Flask-Project directory
-echo Creating Flask-Project directory...
-mkdir Flask-Project
+rem Clone GitHub Repo...
+echo Cloning Github Repo...
+git clone https://github.com/CSI-SFIT/Flask-Forward-Fundamentals-and-Beyond
 
-rem Enter Flask-Project directory
-echo Entering Flask-Project directory...
-cd Flask-Project
+cd Flask-Forward-Fundamentals-and-Beyond
 
 rem Create Python virtual environment
 echo Creating Python virtual environment...
@@ -63,9 +61,9 @@ rem Install dependencies
 echo ** Installing dependencies...**
 pip install -r requirements.txt
 
-rem Create main.py file
-echo ** Creating main.py file...**
-echo print("Hello, Flask") > main.py
+rem Install Python Extension
+echo ** Installing python extension **
+code --install-extension ms-python.python
 
 rem Open VS Code (avoid automatic launch)
 echo ** Opening Vs Code **

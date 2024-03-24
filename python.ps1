@@ -45,7 +45,7 @@ winget update
 
 Write-Host " "  # Blank line
 Write-Host "Preparing to install software..." -ForegroundColor Cyan
-$softwareList = @("Python.Python.3.12", "Microsoft.VisualStudioCode")
+$softwareList = @("Python.Python.3.12", "Microsoft.VisualStudioCode", "Git.Git")
 
 foreach ($software in $softwareList) {
     $softwareStatusCheck = winget list | Where-Object { $_.Id -eq $software }
